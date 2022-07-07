@@ -1,10 +1,9 @@
 import { getBusinesses } from "./database.js";
 
-const businesses = getBusinesses()
+const businessesAll = getBusinesses()
 
-export const businessList = () => {
-    let businessListHTML = "<h1>Active Businesses</h1>"
-
+export const eachBusiness = (businesses) => {
+    let businessListHTML = ""
     businesses.forEach((business) => {
         businessListHTML += `
             <section class="business">
@@ -17,3 +16,5 @@ export const businessList = () => {
     })
     return businessListHTML    
 }
+export const businessList = () => eachBusiness(businessesAll)
+ 
