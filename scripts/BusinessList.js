@@ -17,4 +17,3 @@ export const eachBusiness = (businesses) => {
     return businessListHTML    
 }
 export const businessList = () => eachBusiness(businessesAll)
- 
