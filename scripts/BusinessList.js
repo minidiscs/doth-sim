@@ -27,25 +27,16 @@ document
                 const companySearchResultArticle = document.querySelector(".foundBusinesses")
 
                 if (keyPressEvent.charCode === 13) {
-                    /*
-                        When the user presses 'Enter', find the matching business.
-
-
-                        You can use the `.includes()` string method to
-                        see if a smaller string is part of a larger string.
-
-                        Example:
-                            if (business.companyName.includes(keyPressEvent.target.value)) {
-
-                            }
-                    */
+                    //When the user presses 'Enter', find the matching business.
 
                     let foundBusiness = businessesAll.find(business => business.companyName.includes(keyPressEvent.target.value) )
                         // Your callback function goes here
 
                     //wrap foundBusiness object in an array to it can be used as an argument to the eachBusiness function, which expects an array   
                     const wrappedFoundBusiness = [foundBusiness].flat()
-
-                    companySearchResultArticle.innerHTML = eachBusiness(wrappedFoundBusiness)
+                    //add error handling, pass to eachBusiness function
+                    if (foundBusiness != undefined) {
+                        companySearchResultArticle.innerHTML = eachBusiness(wrappedFoundBusiness)
+                    } 
                 }
         });
