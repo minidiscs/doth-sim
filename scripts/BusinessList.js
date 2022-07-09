@@ -15,28 +15,19 @@ export const eachBusiness = (businesses) => {
                 ${business.addressCity}, ${business.addressStateCode} ${business.addressZipCode}
                 <hr>`
     })
-    return businessListHTML    
+    return businessListHTML
 }
 export const businessList = () => eachBusiness(businessesAll)
 
-document
-    .querySelector("#content")
-        .addEventListener(
-            "keypress",
-            (keyPressEvent) => {
-                const companySearchResultArticle = document.querySelector(".foundBusinesses")
+document.querySelector(".company--search").addEventListener("input", (keyPressEvent) => {
+    const companySearchResultArticle = document.querySelector(".foundBusinesses")
 
-                if (keyPressEvent.charCode === 13) {
-                    //When the user presses 'Enter', find the matching business.
+    const foundBusiness = businessesAll.find(business => business.companyName.toUpperCase().includes(keyPressEvent.target.value.toUpperCase()))
 
-                    let foundBusiness = businessesAll.find(business => business.companyName.includes(keyPressEvent.target.value) )
-                        // Your callback function goes here
-
-                    //wrap foundBusiness object in an array to it can be used as an argument to the eachBusiness function, which expects an array   
-                    const wrappedFoundBusiness = [foundBusiness].flat()
-                    //add error handling, pass to eachBusiness function
-                    if (foundBusiness != undefined) {
-                        companySearchResultArticle.innerHTML = eachBusiness(wrappedFoundBusiness)
-                    } 
-                }
-        });
+    //wrap foundBusiness object in an array to it can be used as an argument to the eachBusiness function, which expects an array   
+    const wrappedFoundBusiness = [foundBusiness].flat()
+    //add error handling, pass to eachBusiness function
+    if (foundBusiness != undefined) {
+        companySearchResultArticle.innerHTML = eachBusiness(wrappedFoundBusiness)
+    }
+})
