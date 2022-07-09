@@ -30,4 +30,7 @@ document.querySelector(".company--search").addEventListener("input", (keyPressEv
     if (foundBusiness != undefined) {
         companySearchResultArticle.innerHTML = eachBusiness(wrappedFoundBusiness)
     }
+    else {
+        companySearchResultArticle.innerHTML = ""
+    }
 })

@@ -20,4 +20,7 @@ document.querySelector(".agent--search").addEventListener("input", (keyPressEven
     if (foundAgent != undefined) {
         agentSearchResultArticle.innerHTML = purchasingAgents(wrappedFoundAgent)
     }
+    else {
+        agentSearchResultArticle.innerHTML = ""
+    }
 })
