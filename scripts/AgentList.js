@@ -18,10 +18,10 @@ document.querySelector(".agent--search").addEventListener("keydown", (keyPressEv
     //wrap foundBusiness object in an array to it can be used as an argument to the purchasingAgents function, which expects an array   
     const wrappedFoundAgent = [foundAgent].flat()
     //add error handling, pass to purchasingAgents function when value length > 1
-    if (keyPressEvent.target.value.length > 1) {
+    if (keyPressEvent.target.value.length >= 1) {
         agentSearchResultArticle.innerHTML = purchasingAgents(wrappedFoundAgent)
     }
-    //clear innerHTML when foundAgent doesn't return an agent or value.length is <= 1
+    //clear innerHTML when foundAgent doesn't return an agent or value.length is < 1
     else {
         agentSearchResultArticle.innerHTML = ""
     }

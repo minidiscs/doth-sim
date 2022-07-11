@@ -28,7 +28,7 @@ document.querySelector(".company--search").addEventListener("input", (keyPressEv
     //wrap foundBusiness object in an array to it can be used as an argument to the eachBusiness function, which expects an array   
     const wrappedFoundBusiness = [foundBusiness].flat()
     //add error handling, pass to eachBusiness function when value length >1
-    if (keyPressEvent.target.value.length > 1) {
+    if (keyPressEvent.target.value.length >= 1) {
         companySearchResultArticle.innerHTML = eachBusiness(wrappedFoundBusiness)
     }
     //clear innerHTML when string <= 1
